@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCampus - Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // JavaScript to handle sidebar toggle on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            const profileMenu = document.getElementById('profile-menu');
+            
+            // Sidebar toggle for mobile
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebar.classList.toggle('translate-x-0');
+            });
+            
+            // Profile dropdown toggle
+            profileDropdown.addEventListener('click', function() {
+                profileMenu.classList.toggle('hidden');
+            });
+            
+            // Close profile dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!profileDropdown.contains(event.target)) {
+                    profileMenu.classList.add('hidden');
+                }
+            });
+            
+            // Mobile navigation toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-gray-800 text-white w-64 fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out z-10">
+            <div class="flex flex-col h-full">
+                <!-- Sidebar Header -->
+                <div class="bg-gradient-to-r from-orange-400 via-amber-500 to-teal-500 p-4">
+                    <div class="flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGEh1wgJLogU9ZWikUlZBuBjqiOBEIAaUP-ExeyjRj27Byc13vPxYp0xfDuARJhbYfKpA&usqp=CAU" alt="MyCampus Logo" class="h-10">
+                        <div class="ml-2">
+                            <h1 class="text-white text-xl font-bold">MyCampus</h1>
+                            <p class="text-white text-xs">Student Portal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Student Info -->
+                <div class="p-4 border-b border-gray-700">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-400 rounded-full p-2">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium">Alex Johnson</h3>
+                            <p class="text-xs text-gray-300">ID: S20234565</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-xs bg-orange-100 text-orange-800 rounded-md p-1 text-center">
+                        Computer Science - Year 2
+                    </div>
+                </div>
+                
+                <!-- Sidebar Menu -->
+                <nav class="flex-grow overflow-y-auto py-4">
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 bg-gray-700 text-white rounded-l-full">
+                                <i class="fas fa-tachometer-alt w-5 text-center"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-calendar-check w-5 text-center"></i>
+                                <span>Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-tasks w-5 text-center"></i>
+                                <span>Tasks & Assignments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-book-open w-5 text-center"></i>
+                                <span>Courses</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-file-alt w-5 text-center"></i>
+                                <span>Exams</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-chart-line w-5 text-center"></i>
+                                <span>Results</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-money-bill-wave w-5 text-center"></i>
+                                <span>Fee Details</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-calendar-alt w-5 text-center"></i>
+                                <span>Timetable</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-l-full transition-colors">
+                                <i class="fas fa-book w-5 text-center"></i>
+                                <span>Library</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Sidebar Footer -->
+                <div class="p-4 border-t border-gray-700">
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span>Last Login: 09 Mar, 2025</span>
+                        <a href="#" class="text-orange-400 hover:text-orange-300">Help <i class="fas fa-question-circle ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden md:ml-64">
+            <!-- Top Navigation Bar -->
+            <header class="bg-white border-b border-gray-200 shadow-sm">
+                <div class="flex items-center justify-between h-16 px-4">
+                    <!-- Left - Mobile Menu Button & Breadcrumb -->
+                    <div class="flex items-center">
+                        <button id="sidebar-toggle" class="text-gray-700 p-2 rounded-md md:hidden">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                        <nav class="hidden md:flex ml-4" aria-label="Breadcrumb">
+                            <ol class="flex items-center space-x-1 text-sm text-gray-500">
+                                <li><a href="#" class="hover:text-orange-500">Home</a></li>
+                                <li><span class="mx-1">/</span></li>
+                                <li class="text-orange-500 font-medium">Dashboard</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                    <!-- Center - Main Navigation -->
+                    <nav class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-orange-500 border-b-2 border-orange-500">Dashboard</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-orange-500 border-b-2 border-transparent hover:border-orange-500">My Courses</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-orange-500 border-b-2 border-transparent hover:border-orange-500">My Classroom</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-orange-500 border-b-2 border-transparent hover:border-orange-500">Resources</a>
+                    </nav>
+                    
+                    <!-- Right - User Menu -->
+                    <div class="flex items-center space-x-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button class="p-2 text-gray-500 hover:text-orange-500 relative">
+                                <i class="fas fa-bell"></i>
+                                <span class="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">4</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Profile Dropdown -->
+                        <div class="relative">
+                            <button id="profile-dropdown" class="flex items-center space-x-2">
+                                <img src="/api/placeholder/40/40" alt="Profile" class="h-8 w-8 rounded-full object-cover border-2 border-orange-400">
+                                <span class="hidden md:block font-medium text-sm">Alex Johnson</span>
+                                <i class="fas fa-chevron-down text-xs text-gray-500"></i>
+                            </button>
+                            
+                            <!-- Dropdown Menu -->
+                            <div id="profile-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">
+                                    <i class="fas fa-user-circle mr-2 text-orange-400"></i> My Profile
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">
+                                    <i class="fas fa-cog mr-2 text-orange-400"></i> Settings
+                                </a>
+                                <div class="border-t border-gray-100 my-1"></div>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50">
+                                    <i class="fas fa-sign-out-alt mr-2 text-orange-400"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 px-2 py-2">
+                    <a href="#" class="block px-3 py-2 text-sm font-medium text-orange-500 bg-orange-50 rounded-md">Dashboard</a>
+                    <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">My Courses</a>
+                    <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">My Classroom</a>
+                    <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">Resources</a>
+                </div>
+            </header>
+            
+            <!-- Main Dashboard Content -->
+            <main id="main-content" class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50">
+                <!-- Welcome Banner -->
+                <div class="bg-gradient-to-r from-orange-400 via-amber-500 to-teal-500 rounded-lg shadow-md p-4 md:p-6 mb-6">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h1 class="text-white text-xl md:text-2xl font-bold">Welcome back, Alex!</h1>
+                            <p class="text-white text-opacity-90 mt-1">You have 3 assignments due this week and 2 upcoming exams.</p>
+                            <button class="mt-3 bg-white text-orange-500 hover:bg-orange-50 font-medium px-4 py-2 rounded-md shadow transition-colors text-sm">
+                                View Calendar <i class="fas fa-calendar-alt ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/api/placeholder/150/120" alt="Student Illustration" class="h-24 md:h-32">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+                    <!-- Attendance Card -->
+                    <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-green-500">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm text-gray-500">Attendance</p>
+                                <h3 class="text-2xl font-bold text-gray-800">92.5%</h3>
+                                <p class="text-xs text-green-500 mt-1">
+                                    <i class="fas fa-arrow-up mr-1"></i> 2.3% from last month
+                                </p>
+                            </div>
+                            <div class="p-2 bg-green-100 rounded-lg">
+                                <i class="fas fa-calendar-check text-green-500 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GPA Card -->
+                    <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-blue-500">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm text-gray-500">Current GPA</p>
+                                <h3 class="text-2xl font-bold text-gray-800">3.8</h3>
+                                <p class="text-xs text-blue-500 mt-1">
+                                    <i class="fas fa-equals mr-1"></i> Same as last semester
+                                </p>
+                            </div>
+                            <div class="p-2 bg-blue-100 rounded-lg">
+                                <i class="fas fa-chart-line text-blue-500 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Assignments Card -->
+                    <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-orange-500">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm text-gray-500">Pending Assignments</p>
+                                <h3 class="text-2xl font-bold text-gray-800">5</h3>
+                                <p class="text-xs text-orange-500 mt-1">
+                                    <i class="fas fa-exclamation-circle mr-1"></i> 2 due this week
+                                </p>
+                            </div>
+                            <div class="p-2 bg-orange-100 rounded-lg">
+                                <i class="fas fa-tasks text-orange-500 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fee Status Card -->
+                    <div class="bg-white rounded-lg shadow-sm p-4 border-l-4 border-purple-500">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm text-gray-500">Fee Status</p>
+                                <h3 class="text-2xl font-bold text-gray-800">Paid</h3>
+                                <p class="text-xs text-purple-500 mt-1">
+                                    <i class="fas fa-check-circle mr-1"></i> Next due: May 15
+                                </p>
+                            </div>
+                            <div class="p-2 bg-purple-100 rounded-lg">
+                                <i class="fas fa-money-bill-wave text-purple-500 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Dashboard Sections -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Upcoming Classes -->
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                                <h2 class="font-bold text-gray-800">Today's Schedule</h2>
+                                <a href="#" class="text-sm text-orange-500 hover:text-orange-600">View All</a>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-4">
+                                    <!-- Class 1 -->
+                                    <div class="flex items-center p-3 bg-blue-50 rounded-lg border border-blue-100">
+                                        <div class="w-14 h-14 flex-shrink-0 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-laptop-code text-blue-500 text-xl"></i>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h3 class="font-medium">Advanced Programming</h3>
+                                            <p class="text-sm text-gray-500">09:00 AM - 10:30 AM • Room 302</p>
+                                        </div>
+                                        <div class="bg-blue-100 px-3 py-1 rounded-full text-xs text-blue-600">
+                                            In 30 mins
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Class 2 -->
+                                    <div class="flex items-center p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                        <div class="w-14 h-14 flex-shrink-0 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-database text-purple-500 text-xl"></i>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h3 class="font-medium">Database Systems</h3>
+                                            <p class="text-sm text-gray-500">11:00 AM - 12:30 PM • Room 405</p>
+                                        </div>
+                                        <div class="bg-purple-100 px-3 py-1 rounded-full text-xs text-purple-600">
+                                            In 2 hours
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Class 3 -->
+                                    <div class="flex items-center p-3 bg-green-50 rounded-lg border border-green-100">
+                                        <div class="w-14 h-14 flex-shrink-0 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-project-diagram text-green-500 text-xl"></i>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h3 class="font-medium">Software Engineering Lab</h3>
+                                            <p class="text-sm text-gray-500">02:00 PM - 04:00 PM • Lab 201</p>
+                                        </div>
+                                        <div class="bg-green-100 px-3 py-1 rounded-full text-xs text-green-600">
+                                            In 5 hours
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Upcoming Assignments -->
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                                <h2 class="font-bold text-gray-800">Assignments Due</h2>
+                                <a href="#" class="text-sm text-orange-500 hover:text-orange-600">View All</a>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assignment</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <div class="font-medium text-gray-900">Database Project</div>
+                                                <div class="text-xs text-gray-500">Design & Implementation</div>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                                    <i class="fas fa-database mr-1"></i> DB Sys
+                                                </span>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">Mar 12, 2025</td>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                    3 days left
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <div class="font-medium text-gray-900">Algorithm Analysis</div>
+                                                <div class="text-xs text-gray-500">Problem Set 3</div>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                                    <i class="fas fa-code mr-1"></i> Algorithms
+                                                </span>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">Mar 15, 2025</td>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                                    6 days left
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <div class="font-medium text-gray-900">Network Security</div>
+                                                <div class="text-xs text-gray-500">Encryption Research</div>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                    <i class="fas fa-shield-alt mr-1"></i> Security
+                                                </span>
+                                            </td>
+                                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">Mar 20, 2025</td>
+                                            <td class="px-4 py-3 whitespace-nowrap">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                    11 days left
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="space-y-6">
+                        <!-- Attendance Chart -->
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="p-4 border-b border-gray-100">
+                                <h2 class="font-bold text-gray-800">Attendance Overview</h2>
+                            </div>
+                            <div class="p-4">
+                                <div class="h-40 flex items-center justify-center bg-gray-50 rounded">
+                                    <p class="text-gray-500 text-sm">Attendance chart visualization</p>
+                                </div>
+                                <div class="mt-4 grid grid-cols-2 gap-3">
+                                    <div class="border border-gray-200 rounded-lg p-3">
+                                        <div class="text-sm text-gray-500">Present</div>
+                                        <div class="text-lg font-bold text-green-500">37</div>
+                                        <div class="text-xs text-gray-500">days</div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3">
+                                        <div class="text-sm text-gray-500">Absent</div>
+                                        <div class="text-lg font-bold text-red-500">3</div>
+                                        <div class="text-xs text-gray-500">days</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Upcoming Events -->
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="p-4 border-b border-gray-100">
+                                <h2 class="font-bold text-gray-800">Upcoming Events</h2>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-trophy text-yellow-500"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium text-sm">Coding Competition</h3>
+                                            <p class="text-xs text-gray-500">Mar 15 • Computer Lab</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-laptop text-indigo-500"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium text-sm">Tech Workshop</h3>
+                                            <p class="text-xs text-gray-500">Mar 18 • Seminar Hall</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                            <i class="fas fa-file-alt text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium text-sm">Mid-Term Exams</h3>
+                                            <p class="text-xs text-gray-500">Mar 22-28 • Exam Hall</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="block text-center text-sm text-orange-500 hover:text-orange-600 mt-3">
+                                    View All Events
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Announcements -->
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="p-4 border-b border-gray-100">
+                                <h2 class="font-bold text-gray-800">Announcements</h2>
+                            </div>
+                            <div class="p-4">
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-blue-500 pl-3">
+                                        <h3 class="font-medium text-sm">Library Timings Updated</h3>
+                                        <p class="text-xs text-gray-500 mt-1">The library will now remain open until 10 PM on weekdays.</p>
+                                        <p class="text-xs text-gray-400 mt-1">2 hours ago</p>
+                                    </div>
+                                    <div class="border-l-4 border-green-500 pl-3">
+                                        <h3 class="font-medium text-sm">New Research Opportunities</h3>
+                                        <p class="text-xs text-gray-500 mt-1">Applications open for summer research internships.</p>
+                                        <p class="text-xs text-gray-400 mt-1">Yesterday</p>
+                                    </div>
+                                    <div class="border-l-4 border-orange-500 pl-3">
+                                        <h3 class="font-medium text-sm">Campus Wi-Fi Maintenance</h3>
+                                        <p class="text-xs text-gray-500 mt-1">Scheduled maintenance on Mar 12 from 2 AM to 5 AM.</p>
+                                        <p class="text-xs text-gray-400 mt-1">2 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Footer -->
+            <footer class="bg-white border-t border-gray-200 py-3 px-4 md:px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-center md:text-left mb-2 md:mb-0">
+                        <p class="text-xs text-gray-500">© 2025 MyCampus Student Portal. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-orange-500">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-orange-500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-orange-500">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-orange-500">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
