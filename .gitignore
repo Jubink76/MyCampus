@@ -1,0 +1,14 @@
+# Ignore sensitive data
+Student_Management/.env
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+# Ignore virtual environments
+student_venv/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore static & media (optional)
+staticfiles/
+media/
