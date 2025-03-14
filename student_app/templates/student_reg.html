@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +63,9 @@
             
             <!-- Right Side - Registration Form -->
             <div class="md:w-2/3 max-w-2xl w-full">
-                <form action="{% url 'student_registration' %}" method="post" enctype="multipart/form-data" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <form action="" method="post" enctype="multipart/form-data" class="bg-white rounded-lg shadow-lg overflow-hidden">
                     {% csrf_token %}
-                    
+                    <input type="hidden" name="role" value="student">
                     <!-- Progress Bar -->
                     <div class="bg-gray-100 h-2 w-full">
                         <div id="progress-bar" class="bg-orange-500 h-2 w-full transition-all duration-300"></div>
@@ -97,8 +98,13 @@
                             </div>
                             
                             <div>
-                                <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-                                <input type="number" id="age" name="age" min="0" class="block w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                                <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                                <select id="gender" name="gender" class="block w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                             
                             <div>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +135,7 @@
                         <p class="text-gray-600 mt-2">Access your student dashboard</p>
                     </div>
 
-                    <form action="{% url 'student_login' %}" method="post" class="space-y-4">
+                    <form action="" method="post" class="space-y-4">
                         {% csrf_token %}
                         <input type="hidden" name="role" value="student">
                         <div>
@@ -174,7 +175,7 @@
                         <button class="back-button text-sm text-gray-500 hover:text-orange-500 flex items-center">
                             <i class="fas fa-arrow-left mr-1"></i> Back to selection
                         </button>
-                        <a href="#" class="text-sm font-medium text-orange-500 hover:text-orange-600">New student? Register</a>
+                        <a href="{% url 'student_register' %}" class="text-sm font-medium text-orange-500 hover:text-orange-600">New student? Register</a>
                     </div>
                 </div>
                 
@@ -188,7 +189,7 @@
                         <p class="text-gray-600 mt-2">Access your teaching portal</p>
                     </div>
 
-                    <form action="{% url 'staff_login' %}" method="post" class="space-y-4">
+                    <form action="" method="post" class="space-y-4">
                         {% csrf_token %}
                         <input type="hidden" name="role" value="staff">
                         <div>
@@ -242,7 +243,7 @@
                         <p class="text-gray-600 mt-2">Access administrative controls</p>
                     </div>
 
-                    <form action="{% url 'admin_login' %}" method="post" class="space-y-4">
+                    <form action="" method="post" class="space-y-4">
                         {% csrf_token %}
                         <input type="hidden" name="role" value="head">
                         <div>
